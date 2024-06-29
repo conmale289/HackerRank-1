@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20240629074105"
+  },
+  "applications": ["dmmtiktok"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "crawledDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sold",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Crawl",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "crawls",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (image()) {
+      <div>
+        <h2 data-cy="imageDetailsHeading"><span jhiTranslate="dmmtiktokApp.image.detail.title">Image</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ image()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.image.src">Src</span></dt>
+          <dd>
+            <span>{{ image()!.src }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.image.product">Product</span></dt>
+          <dd>
+            @if (image()!.product) {
+              <div>
+                <a [routerLink]="['/product', image()!.product?.id, 'view']">{{ image()!.product?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/image', image()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

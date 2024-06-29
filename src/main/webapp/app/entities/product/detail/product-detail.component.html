@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (product()) {
+      <div>
+        <h2 data-cy="productDetailsHeading"><span jhiTranslate="dmmtiktokApp.product.detail.title">Product</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ product()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.product.productId">Product Id</span></dt>
+          <dd>
+            <span>{{ product()!.productId }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.product.name">Name</span></dt>
+          <dd>
+            <span>{{ product()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.product.shop">Shop</span></dt>
+          <dd>
+            <span>{{ product()!.shop }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.product.sold">Sold</span></dt>
+          <dd>
+            <span>{{ product()!.sold }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.product.comment">Comment</span></dt>
+          <dd>
+            <span>{{ product()!.comment }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.product.sku">Sku</span></dt>
+          <dd>
+            <span>{{ product()!.sku }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.product.productLink">Product Link</span></dt>
+          <dd>
+            <span>{{ product()!.productLink }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/product', product()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

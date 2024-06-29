@@ -1,0 +1,59 @@
+{
+  "annotations": {
+    "changelogDate": "20240629073905"
+  },
+  "applications": ["dmmtiktok"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "productId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "shop",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sold",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "sku",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productLink",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Product",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "image",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "images",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "crawl",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "crawls",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

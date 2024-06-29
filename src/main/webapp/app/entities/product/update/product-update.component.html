@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-product-heading" data-cy="ProductCreateUpdateHeading" jhiTranslate="dmmtiktokApp.product.home.createOrEditLabel">
+        Create or edit a Product
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="dmmtiktokApp.product.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_productId" jhiTranslate="dmmtiktokApp.product.productId">Product Id</label>
+          <input type="text" class="form-control" name="productId" id="field_productId" data-cy="productId" formControlName="productId" />
+          @if (editForm.get('productId')!.invalid && (editForm.get('productId')!.dirty || editForm.get('productId')!.touched)) {
+            <div>
+              @if (editForm.get('productId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_name" jhiTranslate="dmmtiktokApp.product.name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          @if (editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)) {
+            <div>
+              @if (editForm.get('name')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_shop" jhiTranslate="dmmtiktokApp.product.shop">Shop</label>
+          <input type="text" class="form-control" name="shop" id="field_shop" data-cy="shop" formControlName="shop" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_sold" jhiTranslate="dmmtiktokApp.product.sold">Sold</label>
+          <input type="number" class="form-control" name="sold" id="field_sold" data-cy="sold" formControlName="sold" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_comment" jhiTranslate="dmmtiktokApp.product.comment">Comment</label>
+          <input type="number" class="form-control" name="comment" id="field_comment" data-cy="comment" formControlName="comment" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_sku" jhiTranslate="dmmtiktokApp.product.sku">Sku</label>
+          <input type="text" class="form-control" name="sku" id="field_sku" data-cy="sku" formControlName="sku" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_productLink" jhiTranslate="dmmtiktokApp.product.productLink">Product Link</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productLink"
+            id="field_productLink"
+            data-cy="productLink"
+            formControlName="productLink"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

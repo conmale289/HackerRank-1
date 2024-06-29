@@ -1,0 +1,19 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "dmmtiktok",
+    "clientFramework": "angular",
+    "databaseType": "mongodb",
+    "devServerPort": 4200,
+    "entities": ["Product", "Image", "Crawl"],
+    "jhipsterVersion": "8.6.0",
+    "jwtSecretKey": "ZTY4MmJlOTU1YzFmMzA3YzU0ZjMxNzZmZDVhNDc0MTc5NjMxYWE4ZmVmY2U4YWI1YzE1ZmRmNGE4ZmQ0NDE4YzYyMjViMzM4MDVmZTM1MWUzN2NmZDYxZDUzZmQwMzg1YThjYTE4ZjQ5Yzg5M2VkNDIzMGI0YWI0ZmY5NDZmMjA=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1719646865000,
+    "nativeLanguage": "en",
+    "packageFolder": "net/crash/dmmtiktok",
+    "packageName": "net.crash.dmmtiktok",
+    "prodDatabaseType": "mongodb"
+  }
+}

@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (crawl()) {
+      <div>
+        <h2 data-cy="crawlDetailsHeading"><span jhiTranslate="dmmtiktokApp.crawl.detail.title">Crawl</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ crawl()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.crawl.crawledDate">Crawled Date</span></dt>
+          <dd>
+            <span>{{ crawl()!.crawledDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.crawl.sold">Sold</span></dt>
+          <dd>
+            <span>{{ crawl()!.sold }}</span>
+          </dd>
+          <dt><span jhiTranslate="dmmtiktokApp.crawl.product">Product</span></dt>
+          <dd>
+            @if (crawl()!.product) {
+              <div>
+                <a [routerLink]="['/product', crawl()!.product?.id, 'view']">{{ crawl()!.product?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/crawl', crawl()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

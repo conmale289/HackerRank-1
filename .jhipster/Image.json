@@ -1,0 +1,27 @@
+{
+  "annotations": {
+    "changelogDate": "20240629074005"
+  },
+  "applications": ["dmmtiktok"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "src",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Image",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "images",
+      "relationshipName": "product",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

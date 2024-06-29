@@ -1,0 +1,43 @@
+
+application {
+  config {
+    baseName dmmtiktok
+    applicationType monolith
+    packageName net.crash.dmmtiktok
+    authenticationType jwt
+    databaseType mongodb
+    prodDatabaseType mongodb
+    clientFramework angularX
+  }
+  entities *
+}
+
+entity Product {
+  productId String required,
+  name String required,
+  shop String,
+  sold Long,
+  comment Long,
+  sku String,
+  productLink String
+}
+
+entity Image {
+  src String required
+}
+
+entity Crawl {
+  crawledDate Instant required,
+  sold Long
+}
+
+relationship OneToMany {
+  Product{images} to Image{product},
+  Product{crawls} to Crawl{product}
+}
+
+dto * with mapstruct
+service all with serviceClass
+paginate Product, Image, Crawl with pagination
+
+
